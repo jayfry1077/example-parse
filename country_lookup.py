@@ -15,7 +15,7 @@ def get_country_name(country_code=str):
         response = requests.get(COUNTRY_CODE_LOOKUP_URL, params=params).json()
 
         if response['api_status']['reply']['code'] != 200:
-            raise f'Unable to find country with provided code {country_code}'
+            return f'Unable to find country with provided code {country_code}'
 
         return response['data'][uppercase_country_code]['name']
 
